@@ -1,0 +1,27 @@
+#:import MDFillRoundFlatButton kivymd.uix.button.MDFillRoundFlatButton
+
+<PredictionScreen>:
+    name: "prediction"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDLabel:
+            text: "Prediction Workspace"
+            font_style: "H5"
+            halign: "left"
+
+        ScrollView:
+            MDList:
+                id: results_list
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDFillRoundFlatButton:
+                text: "Run Evaluation"
+                on_release: root.run_prediction()
+            MDFillRoundFlatButton:
+                text: "Back"
+                on_release: root.back_to_dashboard()
