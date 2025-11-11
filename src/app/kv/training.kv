@@ -1,0 +1,44 @@
+#:import MDFillRoundFlatButton kivymd.uix.button.MDFillRoundFlatButton
+#:import ModelProgressBar src.app.widgets.ModelProgressBar
+
+<TrainingScreen>:
+    name: "training"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDLabel:
+            text: "Training Workspace"
+            font_style: "H5"
+            halign: "left"
+
+        ScrollView:
+            MDGridLayout:
+                cols: 1
+                adaptive_height: True
+                spacing: "16dp"
+
+                ModelProgressBar:
+                    id: progress_vgg16
+                    model_name: "vgg16"
+                ModelProgressBar:
+                    id: progress_vgg19
+                    model_name: "vgg19"
+                ModelProgressBar:
+                    id: progress_resnet50
+                    model_name: "resnet50"
+                ModelProgressBar:
+                    id: progress_efficientnet
+                    model_name: "efficientnet"
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDFillRoundFlatButton:
+                id: start_button
+                text: "Start Training"
+                on_release: root.start_training()
+            MDFillRoundFlatButton:
+                text: "Back"
+                on_release: root.stop_training()

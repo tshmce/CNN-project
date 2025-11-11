@@ -1,0 +1,31 @@
+#:import MDFillRoundFlatButton kivymd.uix.button.MDFillRoundFlatButton
+
+<DashboardScreen>:
+    name: "dashboard"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "24dp"
+
+        MDLabel:
+            text: "Crack Detection Dashboard"
+            font_style: "H4"
+            halign: "left"
+
+        MDLabel:
+            id: dataset_label
+            text: "No dataset selected"
+            theme_text_color: "Secondary"
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDFillRoundFlatButton:
+                text: "Select Dataset"
+                on_release: root.open_file_manager()
+            MDFillRoundFlatButton:
+                text: "Open Training Workspace"
+                on_release: root.open_training()
+            MDFillRoundFlatButton:
+                text: "Open Prediction Workspace"
+                on_release: root.open_prediction()
