@@ -71,7 +71,11 @@ CNN-project/
 3. If you have an accompanying CSV with labels/metadata, store it under `data/metadata/`.
 
 ### 2. Create a Virtual Environment
+<<<<<<< ours
 The pinned dependencies target **Python 3.10.x** (validated on 3.10.0). If you are on a different interpreter version, create a matching environment before installing the packages or adjust the versions accordingly.
+=======
+The pinned dependencies target **Python 3.10.x** (validated on 3.10.0). TensorFlow `2.10.1` is the last release that ships official Windows wheels, so these pins work across Windows, macOS, and Linux. If you are on a different interpreter version, create a matching environment before installing the packages or adjust the versions accordingly.
+>>>>>>> theirs
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # On Windows: .venv\\Scripts\\activate
@@ -117,7 +121,11 @@ pytest
 ```
 
 ## Troubleshooting
+<<<<<<< ours
 - **Version mismatches**: verify that you are running inside a Python 3.10 environment. The `requirements.txt` pins wheels that provide prebuilt binaries for Python 3.10.0; using older/newer interpreters may require relaxing or updating the version constraints.
+=======
+- **Version mismatches**: verify that you are running inside a Python 3.10 environment. The `requirements.txt` pins TensorFlow 2.10.1 (with Keras 2.10.0) because it is the newest version providing wheels for both Windows and Linux on Python 3.10.0; using older/newer interpreters may require relaxing or updating the version constraints.
+>>>>>>> theirs
 - **Kivy install issues**: ensure you have the appropriate platform dependencies (SDL2, GStreamer). Refer to the [Kivy installation docs](https://kivy.org/doc/stable/installation/installation.html).
 - **TensorFlow GPU support**: install the matching CUDA/cuDNN toolkits. Consult the [TensorFlow GPU guide](https://www.tensorflow.org/install/gpu).
 - **Large dataset handling**: adjust `CACHE_SIZE` and `AUTOTUNE` parameters in `data_pipeline/loader.py` if you encounter memory constraints.
