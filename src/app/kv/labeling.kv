@@ -1,0 +1,59 @@
+#:import MDFillRoundFlatButton kivymd.uix.button.MDFillRoundFlatButton
+
+<LabelingScreen>:
+    name: "labeling"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "24dp"
+        spacing: "16dp"
+
+        MDLabel:
+            text: "Labeling Workspace"
+            font_style: "H5"
+            halign: "left"
+
+        MDLabel:
+            id: unlabeled_label
+            text: "No unlabeled folder selected"
+            theme_text_color: "Secondary"
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDFillRoundFlatButton:
+                text: "Choose Unlabeled Folder"
+                on_release: root.choose_unlabeled()
+            MDFillRoundFlatButton:
+                text: "Back"
+                on_release: root.back_to_dashboard()
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "12dp"
+            MDBoxLayout:
+                size_hint_y: 0.85
+                padding: "12dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.1, 0.1, 0.1, 0.05
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                Image:
+                    id: image_view
+                    source: ""
+                    allow_stretch: True
+                    keep_ratio: True
+            MDBoxLayout:
+                adaptive_height: True
+                spacing: "12dp"
+                MDFillRoundFlatButton:
+                    text: "Positive"
+                    on_release: root.mark_positive()
+                MDFillRoundFlatButton:
+                    text: "Negative"
+                    on_release: root.mark_negative()
+                MDFillRoundFlatButton:
+                    text: "Skip"
+                    on_release: root.skip()
+

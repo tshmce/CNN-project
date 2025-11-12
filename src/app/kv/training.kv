@@ -13,6 +13,31 @@
             font_style: "H5"
             halign: "left"
 
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDLabel:
+                id: current_label
+                text: "Selected label: Positive"
+                theme_text_color: "Secondary"
+            MDFillRoundFlatButton:
+                text: "Positive"
+                on_release: root.set_label_positive()
+            MDFillRoundFlatButton:
+                text: "Negative"
+                on_release: root.set_label_negative()
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDFillRoundFlatButton:
+                text: "Choose Folder (images)"
+                on_release: root.choose_images_folder()
+            MDLabel:
+                id: ingest_status
+                text: "No folder ingested yet"
+                theme_text_color: "Secondary"
+
         ScrollView:
             MDGridLayout:
                 cols: 1

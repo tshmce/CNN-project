@@ -4,6 +4,7 @@
 This repository implements a Kivy/KivyMD desktop application for training and evaluating convolutional neural networks that detect structural cracks. The dashboard allows you to:
 
 - Select a dataset directory that mirrors the Google Drive folder structure you shared (class subdirectories containing images).
+- Optionally label your images inside the app: pick an unlabeled folder and quickly file images into Positive/Negative class folders.
 - Launch a dedicated training workspace that sequentially fits four transfer-learning models (VGG16, VGG19, ResNet50, EfficientNetB0) while streaming progress bars and logs.
 - Persist trained weights, training history, and artefacts directly beside the dataset for full reproducibility.
 - Open a prediction workspace that loads the trained weights, performs inference on user-supplied images, and visualises the results through confusion matrices, Grad-CAM grids, calibration curves, UMAP embeddings, probability histograms, and duplicate/leakage plots.
@@ -100,7 +101,7 @@ The first time you run the app it will prompt for the dataset directory. Subsequ
 ## Prediction & Visualisation Workflow
 1. From the dashboard, open the **Prediction Workspace** and pick your trained checkpoints directory.
 2. Upload one or more images. The pipeline automatically mirrors the training preprocessing steps.
-3. Predictions from each model appear in a comparison table along with confidence scores.
+3. Predictions from each model appear in a comparison table along with confidence scores. The app loads the latest checkpoint for each supported model and evaluates it on the validation split of your selected dataset.
 4. Visualisation tabs display:
    - Confusion matrix (aggregated over the current session)
    - Probability histogram with calibration curve overlay

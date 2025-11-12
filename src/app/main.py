@@ -29,14 +29,17 @@ class CrackDetectionApp(MDApp):
         Builder.load_file(str(settings.BASE_DIR / "src" / "app" / "kv" / "dashboard.kv"))
         Builder.load_file(str(settings.BASE_DIR / "src" / "app" / "kv" / "training.kv"))
         Builder.load_file(str(settings.BASE_DIR / "src" / "app" / "kv" / "inference.kv"))
+        Builder.load_file(str(settings.BASE_DIR / "src" / "app" / "kv" / "labeling.kv"))
 
         dashboard = screens.DashboardScreen(name="dashboard", state=self.state)
         training = screens.TrainingScreen(name="training", state=self.state)
         prediction = screens.PredictionScreen(name="prediction", state=self.state)
+        labeling = screens.LabelingScreen(name="labeling", state=self.state)
 
         self.screen_manager.add_widget(dashboard)
         self.screen_manager.add_widget(training)
         self.screen_manager.add_widget(prediction)
+        self.screen_manager.add_widget(labeling)
 
         return self.screen_manager
 

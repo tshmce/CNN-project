@@ -12,15 +12,22 @@
             font_style: "H5"
             halign: "left"
 
-        ScrollView:
-            MDList:
-                id: results_list
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+            MDFillRoundFlatButton:
+                text: "Choose Image"
+                on_release: root.choose_image()
+            MDLabel:
+                id: selected_image
+                text: "No image selected"
+                theme_text_color: "Secondary"
 
         MDBoxLayout:
             adaptive_height: True
             spacing: "12dp"
             MDFillRoundFlatButton:
-                text: "Run Evaluation"
+                text: "Predict"
                 on_release: root.run_prediction()
             MDFillRoundFlatButton:
                 text: "Back"
